@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://limacon.co.jp/sitemap.xml
