@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,19 +12,6 @@
   gtag('config', 'G-P3902WF81W');
 </script>
 <script src="./support.js"></script>
-<meta name="description" content="新たな視点と革新的なアプローチで、あらゆる市場を再定義する。株式会社Limaçon（リマソン）のコーポレートサイト。">
-<link rel="canonical" href="https://limacon.co.jp/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="株式会社Limaçon">
-<meta property="og:locale" content="ja_JP">
-<meta property="og:url" content="https://limacon.co.jp/">
-<meta property="og:title" content="株式会社Limaçon">
-<meta property="og:description" content="新たな視点と革新的なアプローチで、あらゆる市場を再定義する。">
-<meta property="og:image" content="https://limacon.co.jp/assets/favicon-512.png">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="株式会社Limaçon">
-<meta name="twitter:description" content="新たな視点と革新的なアプローチで、あらゆる市場を再定義する。">
-<meta name="twitter:image" content="https://limacon.co.jp/assets/favicon-512.png">
 </head>
 <body>
 <x-dc>
@@ -57,7 +44,24 @@
   [data-loader].lc-loaded{animation:lc-curtain 1s cubic-bezier(.76,0,.24,1) forwards;pointer-events:none}
   [data-loader-curve].lc-draw{animation:lc-draw 1.25s cubic-bezier(.16,1,.3,1) forwards}
   @media (max-width:1180px){.lc-svc-grid{grid-template-columns:repeat(2,1fr) !important}}
-  @media (max-width:880px){.lc-svc-grid{grid-template-columns:1fr !important}.lc-feat{grid-template-columns:1fr !important}}
+  @media (max-width:880px){
+    .lc-svc-grid{grid-template-columns:1fr !important}
+    .lc-feat{grid-template-columns:1fr !important}
+    .lc-feat-img{order:-1;min-height:0 !important;padding:30px 24px 8px !important;background:transparent !important}
+    .lc-feat-img img{width:auto !important;height:90px !important;max-width:78% !important;margin:0 auto}
+    .lc-feat-text{padding:8px 24px 30px !important}
+  }
+  @media (max-width:760px){.lc-two-col{grid-template-columns:1fr !important;gap:18px !important}}
+  @media (max-width:600px){.lc-hero-sub{white-space:normal !important}}
+  .lc-hamburger{display:none}
+  .lc-mobile-menu{position:fixed;inset:0;z-index:899;background:rgba(11,9,7,.97);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0 32px;opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s ease}
+  .lc-mobile-menu.lc-open{opacity:1;visibility:visible}
+  body.lc-menu-open{overflow:hidden}
+  @media (max-width:768px){
+    .lc-nav-desktop{display:none !important}
+    .lc-hamburger{display:flex !important}
+  }
+  @media (min-width:769px){.lc-mobile-menu{display:none !important}}
 </style>
 </helmet>
 
@@ -73,18 +77,32 @@
   </div>
 
   <!-- ===== HEADER ===== -->
-  <header data-header style="position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(20px,4vw,56px);transition:background .4s ease,box-shadow .4s ease,padding .4s ease">
+  <header data-header style="position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(20px,4vw,56px);background:#0e0a06;transition:background .4s ease,box-shadow .4s ease,padding .4s ease">
     <a href="#top" style="display:flex;align-items:center;gap:12px">
       <img src="assets/logo-white.webp" alt="株式会社Limaçon" style="height:30px;width:auto;display:block">
     </a>
-    <nav style="display:flex;align-items:center;gap:clamp(18px,2.6vw,40px)">
+    <nav class="lc-nav-desktop" style="display:flex;align-items:center;gap:clamp(18px,2.6vw,40px)">
       <a href="#top" style="font-family:'Archivo',sans-serif;font-weight:600;font-size:13px;letter-spacing:.16em;color:#f1ece1">HOME</a>
       <a href="company.html" style="font-family:'Archivo',sans-serif;font-weight:600;font-size:13px;letter-spacing:.16em;color:#f1ece1">COMPANY</a>
       <a href="#service" style="font-family:'Archivo',sans-serif;font-weight:600;font-size:13px;letter-spacing:.16em;color:#f1ece1">SERVICE</a>
       <a href="recruit.html" style="font-family:'Archivo',sans-serif;font-weight:600;font-size:13px;letter-spacing:.16em;color:#f1ece1">RECRUIT</a>
       <a href="contact.html" data-cta-sm style="display:inline-flex;align-items:center;gap:8px;font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.16em;color:#0b0907;background:var(--gold,#c2a05e);padding:11px 20px;border-radius:999px;transition:background .3s ease,transform .3s ease">CONTACT</a>
     </nav>
+    <button class="lc-hamburger" data-menu-toggle aria-label="メニュー" aria-expanded="false" style="display:none;align-items:center;justify-content:center;flex-direction:column;gap:6px;width:44px;height:44px;background:transparent;border:0;cursor:pointer;padding:0;margin:0;-webkit-tap-highlight-color:transparent">
+      <span data-bar style="display:block;width:26px;height:2px;background:#f1ece1;transition:transform .35s cubic-bezier(.16,1,.3,1),opacity .25s ease"></span>
+      <span data-bar style="display:block;width:26px;height:2px;background:#f1ece1;transition:transform .35s cubic-bezier(.16,1,.3,1),opacity .25s ease"></span>
+      <span data-bar style="display:block;width:26px;height:2px;background:#f1ece1;transition:transform .35s cubic-bezier(.16,1,.3,1),opacity .25s ease"></span>
+    </button>
   </header>
+
+  <!-- ===== MOBILE MENU ===== -->
+  <div class="lc-mobile-menu" data-mobile-menu>
+    <a href="#top" data-menu-link style="font-family:'Archivo',sans-serif;font-weight:700;font-size:30px;letter-spacing:.1em;color:#f1ece1;padding:14px 0;border-bottom:1px solid rgba(241,236,225,.12)">HOME</a>
+    <a href="company.html" data-menu-link style="font-family:'Archivo',sans-serif;font-weight:700;font-size:30px;letter-spacing:.1em;color:#f1ece1;padding:14px 0;border-bottom:1px solid rgba(241,236,225,.12)">COMPANY</a>
+    <a href="#service" data-menu-link style="font-family:'Archivo',sans-serif;font-weight:700;font-size:30px;letter-spacing:.1em;color:#f1ece1;padding:14px 0;border-bottom:1px solid rgba(241,236,225,.12)">SERVICE</a>
+    <a href="recruit.html" data-menu-link style="font-family:'Archivo',sans-serif;font-weight:700;font-size:30px;letter-spacing:.1em;color:#f1ece1;padding:14px 0;border-bottom:1px solid rgba(241,236,225,.12)">RECRUIT</a>
+    <a href="contact.html" data-menu-link style="display:inline-flex;align-items:center;gap:10px;align-self:flex-start;margin-top:28px;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;letter-spacing:.14em;color:#0b0907;background:var(--gold,#c2a05e);padding:15px 28px;border-radius:999px">CONTACT <span style="font-size:17px">→</span></a>
+  </div>
 
   <!-- ===== HERO (video, centered monumental) ===== -->
   <section id="top" data-hero style="position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#0b0907">
@@ -98,7 +116,7 @@
       <img data-anim src="assets/mark.png" alt="Limaçon" style="--d:0s;opacity:0;transform:translateY(20px);width:86px;height:auto;margin-bottom:32px">
       <div style="overflow:hidden"><div data-anim data-mask style="--d:.12s;transform:translateY(112%);font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(12px,1.2vw,15px);letter-spacing:.52em;color:#c8a763">WE ARE</div></div>
       <div style="overflow:hidden;margin:8px 0 2px"><h1 data-anim data-mask style="--d:.22s;transform:translateY(112%);margin:0;font-family:'Archivo Expanded','Archivo',sans-serif;font-weight:800;font-size:clamp(56px,11vw,168px);line-height:.88;letter-spacing:-.02em;color:#f1ece1;padding-bottom:.16em">Limaçon</h1></div>
-      <p data-anim style="--d:.52s;opacity:0;transform:translateY(18px);margin:28px 0 0;font-size:clamp(12px,1.4vw,17px);line-height:2.05;font-weight:500;white-space:nowrap;color:rgba(241,236,225,.76)">新たな視点と革新的なアプローチで、あらゆる市場を再定義する。</p>
+      <p data-anim class="lc-hero-sub" style="--d:.52s;opacity:0;transform:translateY(18px);margin:28px 0 0;font-size:clamp(12px,1.4vw,17px);line-height:2.05;font-weight:500;white-space:nowrap;color:rgba(241,236,225,.76)">新たな視点と革新的なアプローチで、あらゆる市場を再定義する。</p>
       <div data-anim style="--d:.62s;opacity:0;transform:translateY(18px);width:56px;height:1px;background:#c2a05e;margin:36px 0"></div>
       <div data-anim style="--d:.72s;opacity:0;transform:translateY(18px);display:flex;gap:clamp(24px,4vw,48px);flex-wrap:wrap;justify-content:center;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.22em;color:rgba(241,236,225,.62)"><span>EST. 2021</span><span>GINZA, TOKYO</span></div>
     </div>
@@ -115,7 +133,7 @@
         <span data-anim style="--d:0s;opacity:0;transform:translateY(18px);font-family:'Space Mono',monospace;font-size:13px;color:#c2a05e;padding-top:18px">01</span>
         <div style="overflow:hidden"><h2 data-anim data-mask style="--d:.05s;transform:translateY(112%);margin:0;font-family:'Archivo Expanded','Archivo',sans-serif;font-weight:800;font-size:clamp(44px,9vw,150px);line-height:.9;letter-spacing:-.02em;color:#f1ece1">MISSION</h2></div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start">
+      <div class="lc-two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start">
         <h3 data-anim style="--d:.1s;opacity:0;transform:translateY(24px);margin:0;font-weight:700;font-size:clamp(22px,2.8vw,38px);line-height:1.55;color:#f1ece1;text-wrap:pretty">新たな視点と革新的なアプローチで<br>市場を再定義する。</h3>
         <p data-anim style="--d:.2s;opacity:0;transform:translateY(24px);margin:0;font-size:clamp(15px,1.4vw,17px);line-height:2.15;font-weight:500;color:rgba(241,236,225,.68);text-wrap:pretty">私たちの使命は、革新と創造を通じて新たな市場を開拓し、顧客に驚きと感動を提供することです。現状に満足せず常に最先端を追求し、既存の枠組みを打ち破って、新たな視点と革新的なアプローチで市場を再定義することで、あらゆる分野・業態で高品質なサービスと製品を提供し続けます。</p>
       </div>
@@ -130,7 +148,7 @@
         <span data-anim style="--d:0s;opacity:0;transform:translateY(18px);font-family:'Space Mono',monospace;font-size:13px;color:#c2a05e;padding-top:18px">02</span>
         <div style="overflow:hidden"><h2 data-anim data-mask style="--d:.05s;transform:translateY(112%);margin:0;font-family:'Archivo Expanded','Archivo',sans-serif;font-weight:800;font-size:clamp(44px,9vw,150px);line-height:.9;letter-spacing:-.02em;color:#f1ece1">VISION</h2></div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start">
+      <div class="lc-two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start">
         <h3 data-anim style="--d:.1s;opacity:0;transform:translateY(24px);margin:0;font-weight:700;font-size:clamp(22px,2.8vw,38px);line-height:1.55;color:#f1ece1;text-wrap:pretty">未来を見据え、<br>常に一歩先を行く存在へ。</h3>
         <p data-anim style="--d:.2s;opacity:0;transform:translateY(24px);margin:0;font-size:clamp(15px,1.4vw,17px);line-height:2.15;font-weight:500;color:rgba(241,236,225,.68);text-wrap:pretty">一見、レッドオーシャンと見なされる市場でさえも、当たり前を変えることで新たなチャンスを創出することを目指します。私たちのビジョンは、すべての顧客に対して新しい体験を提供し、人々の生活をより豊かにすることです。</p>
       </div>
@@ -149,7 +167,7 @@
 
     <!-- featured -->
     <div class="lc-feat" data-anim style="--d:0s;opacity:0;transform:translateY(34px);display:grid;grid-template-columns:1.05fr .95fr;gap:0;align-items:stretch;background:#fff;border:1px solid rgba(26,23,18,.08);border-radius:6px;overflow:hidden;margin-bottom:22px">
-      <div style="padding:clamp(32px,4vw,60px);display:flex;flex-direction:column;justify-content:center">
+      <div class="lc-feat-text" style="padding:clamp(32px,4vw,60px);display:flex;flex-direction:column;justify-content:center">
         <div style="display:inline-flex;align-items:center;gap:9px;align-self:flex-start;margin-bottom:24px;padding:7px 14px;border:1px solid var(--gold,#c2a05e);border-radius:999px">
           <span style="width:5px;height:5px;border-radius:50%;background:var(--gold,#c2a05e)"></span>
           <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.22em;color:#9a7536">OUR BRAND / 自社ブランド</span>
@@ -158,7 +176,7 @@
         <h3 style="margin:0 0 18px;font-weight:700;font-size:clamp(24px,2.6vw,34px);line-height:1.4;color:#1a1712">ラグジュアリーブランド事業</h3>
         <p style="margin:0;font-size:clamp(14px,1.3vw,16px);line-height:2.05;font-weight:500;color:#4a443b;max-width:30em;text-wrap:pretty">MADE IN JAPANを世界に。卓越したクォリティとデザインで、顧客に唯一無二の感動体験を。</p>
       </div>
-      <div style="display:flex;align-items:center;justify-content:center;background:#ffffff;padding:clamp(40px,6vw,80px);min-height:300px">
+      <div class="lc-feat-img" style="display:flex;align-items:center;justify-content:center;background:#ffffff;padding:clamp(40px,6vw,80px);min-height:300px">
         <img src="assets/brand-limacon.webp" alt="Limaçon" style="width:min(100%,300px);height:auto;display:block">
       </div>
     </div>
@@ -341,14 +359,14 @@ class Component extends DCLogic {
       const y = window.scrollY || window.pageYOffset;
       if (header) {
         if (y > 40) {
-          header.style.background = 'rgba(11,9,7,.82)';
+          header.style.background = 'rgba(14,10,6,.92)';
           header.style.backdropFilter = 'blur(14px)';
           header.style.webkitBackdropFilter = 'blur(14px)';
           header.style.boxShadow = '0 1px 0 rgba(194,160,94,.16)';
           header.style.paddingTop = '14px';
           header.style.paddingBottom = '14px';
         } else {
-          header.style.background = 'transparent';
+          header.style.background = '#0e0a06';
           header.style.backdropFilter = 'none';
           header.style.webkitBackdropFilter = 'none';
           header.style.boxShadow = 'none';
@@ -366,6 +384,29 @@ class Component extends DCLogic {
       a.addEventListener('mouseenter', () => a.style.gap = '14px');
       a.addEventListener('mouseleave', () => a.style.gap = '8px');
     });
+    // mobile hamburger menu
+    const menuBtn = q('[data-menu-toggle]');
+    const mobileMenu = q('[data-mobile-menu]');
+    if (menuBtn && mobileMenu) {
+      const bars = Array.from(menuBtn.querySelectorAll('[data-bar]'));
+      const setMenu = (open) => {
+        this._menuOpen = open;
+        mobileMenu.classList.toggle('lc-open', open);
+        document.body.classList.toggle('lc-menu-open', open);
+        menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (bars.length === 3) {
+          bars[0].style.transform = open ? 'translateY(8px) rotate(45deg)' : 'none';
+          bars[1].style.opacity = open ? '0' : '1';
+          bars[2].style.transform = open ? 'translateY(-8px) rotate(-45deg)' : 'none';
+        }
+      };
+      this._setMenu = setMenu;
+      menuBtn.addEventListener('click', () => setMenu(!this._menuOpen));
+      qa('[data-menu-link]').forEach(l => l.addEventListener('click', () => setMenu(false)));
+      this._menuKey = (ev) => { if (ev.key === 'Escape' && this._menuOpen) setMenu(false); };
+      window.addEventListener('keydown', this._menuKey);
+    }
+
     const ctaSm = q('[data-cta-sm]');
     if (ctaSm) {
       ctaSm.addEventListener('mouseenter', () => { ctaSm.style.background = '#d8b76e'; ctaSm.style.transform = 'translateY(-2px)'; });
@@ -429,6 +470,8 @@ class Component extends DCLogic {
     if (this._raf) cancelAnimationFrame(this._raf);
     if (this._kickRaf) cancelAnimationFrame(this._kickRaf);
     if (this._loaderT) clearTimeout(this._loaderT);
+    if (this._menuKey) window.removeEventListener('keydown', this._menuKey);
+    document.body.classList.remove('lc-menu-open');
   }
 
   renderVals() { return {}; }

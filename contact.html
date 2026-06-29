@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,28 +12,6 @@
   gtag('config', 'G-P3902WF81W');
 </script>
 <script src="./support.js"></script>
-<meta name="description" content="株式会社Limaçon（リマソン）へのお問い合わせはこちらから。ご相談・ご質問を承っております。">
-<link rel="canonical" href="https://limacon.co.jp/contact.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="株式会社Limaçon">
-<meta property="og:locale" content="ja_JP">
-<meta property="og:url" content="https://limacon.co.jp/contact.html">
-<meta property="og:title" content="お問い合わせ | 株式会社Limaçon">
-<meta property="og:description" content="株式会社Limaçon（リマソン）へのお問い合わせはこちらから。">
-<meta property="og:image" content="https://limacon.co.jp/assets/favicon-512.png">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="お問い合わせ | 株式会社Limaçon">
-<meta name="twitter:description" content="株式会社Limaçon（リマソン）へのお問い合わせはこちらから。">
-<meta name="twitter:image" content="https://limacon.co.jp/assets/favicon-512.png">
-<!-- reCAPTCHA v3 / GAS endpoint（公開後にキー差し替え） -->
-<script src="https://www.google.com/recaptcha/api.js?render=6LctKjYtAAAAAH5QzIpfClD4qbeOD_cPwmOTxZrU"></script>
-<script>
-  window.LIMACON_CONTACT = {
-    RECAPTCHA_SITE_KEY: '6LctKjYtAAAAAH5QzIpfClD4qbeOD_cPwmOTxZrU',
-    RECAPTCHA_ACTION:   'contact_submit',
-    GAS_ENDPOINT:       'https://script.google.com/macros/s/AKfycbwCy_3lKWolOytX6lCT2B8ysWO1mJyzNRxT1n7EnAusOEdl1NbNc3Co7Uh_0gdnFpJn/exec'
-  };
-</script>
 </head>
 <body>
 <x-dc>
@@ -62,6 +40,12 @@
   [data-loader-curve].lc-draw{animation:lc-draw 1.25s cubic-bezier(.16,1,.3,1) forwards}
   @media (max-width:840px){.lc-cgrid{grid-template-columns:1fr !important;gap:48px !important}.lc-foot{flex-direction:column}}
   @media (max-width:560px){.lc-frow{grid-template-columns:1fr !important}}
+  .lc-hamburger{display:none}
+  .lc-mobile-menu{position:fixed;inset:0;z-index:899;background:rgba(11,9,7,.97);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0 32px;opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s ease}
+  .lc-mobile-menu.lc-open{opacity:1;visibility:visible}
+  body.lc-menu-open{overflow:hidden}
+  @media (max-width:768px){.lc-nav-desktop{display:none !important}.lc-hamburger{display:flex !important}}
+  @media (min-width:769px){.lc-mobile-menu{display:none !important}}
 </style>
 </helmet>
 
@@ -81,14 +65,28 @@
     <a href="index.html" style="display:flex;align-items:center;gap:12px">
       <img src="assets/logo-white.webp" alt="株式会社Limaçon" style="height:30px;width:auto;display:block">
     </a>
-    <nav style="display:flex;align-items:center;gap:clamp(18px,2.6vw,40px)">
+    <nav class="lc-nav-desktop" style="display:flex;align-items:center;gap:clamp(18px,2.6vw,40px)">
       <a href="index.html" style="font-family:'Archivo',sans-serif;font-weight:600;font-size:13px;letter-spacing:.16em;color:#f1ece1">HOME</a>
       <a href="company.html" style="font-family:'Archivo',sans-serif;font-weight:600;font-size:13px;letter-spacing:.16em;color:#f1ece1">COMPANY</a>
       <a href="index.html#service" style="font-family:'Archivo',sans-serif;font-weight:600;font-size:13px;letter-spacing:.16em;color:#f1ece1">SERVICE</a>
       <a href="recruit.html" style="font-family:'Archivo',sans-serif;font-weight:600;font-size:13px;letter-spacing:.16em;color:#f1ece1">RECRUIT</a>
       <a href="contact.html" data-cta-sm style="display:inline-flex;align-items:center;gap:8px;font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.16em;color:#0b0907;background:var(--gold,#c2a05e);padding:11px 20px;border-radius:999px;transition:background .3s ease,transform .3s ease">CONTACT</a>
     </nav>
+    <button class="lc-hamburger" data-menu-toggle aria-label="メニュー" aria-expanded="false" style="display:none;align-items:center;justify-content:center;flex-direction:column;gap:6px;width:44px;height:44px;background:transparent;border:0;cursor:pointer;padding:0;margin:0;-webkit-tap-highlight-color:transparent">
+      <span data-bar style="display:block;width:26px;height:2px;background:#f1ece1;transition:transform .35s cubic-bezier(.16,1,.3,1),opacity .25s ease"></span>
+      <span data-bar style="display:block;width:26px;height:2px;background:#f1ece1;transition:transform .35s cubic-bezier(.16,1,.3,1),opacity .25s ease"></span>
+      <span data-bar style="display:block;width:26px;height:2px;background:#f1ece1;transition:transform .35s cubic-bezier(.16,1,.3,1),opacity .25s ease"></span>
+    </button>
   </header>
+
+  <!-- ===== MOBILE MENU ===== -->
+  <div class="lc-mobile-menu" data-mobile-menu>
+    <a href="index.html" data-menu-link style="font-family:'Archivo',sans-serif;font-weight:700;font-size:30px;letter-spacing:.1em;color:#f1ece1;padding:14px 0;border-bottom:1px solid rgba(241,236,225,.12)">HOME</a>
+    <a href="company.html" data-menu-link style="font-family:'Archivo',sans-serif;font-weight:700;font-size:30px;letter-spacing:.1em;color:#f1ece1;padding:14px 0;border-bottom:1px solid rgba(241,236,225,.12)">COMPANY</a>
+    <a href="index.html#service" data-menu-link style="font-family:'Archivo',sans-serif;font-weight:700;font-size:30px;letter-spacing:.1em;color:#f1ece1;padding:14px 0;border-bottom:1px solid rgba(241,236,225,.12)">SERVICE</a>
+    <a href="recruit.html" data-menu-link style="font-family:'Archivo',sans-serif;font-weight:700;font-size:30px;letter-spacing:.1em;color:#f1ece1;padding:14px 0;border-bottom:1px solid rgba(241,236,225,.12)">RECRUIT</a>
+    <a href="contact.html" data-menu-link style="display:inline-flex;align-items:center;gap:10px;align-self:flex-start;margin-top:28px;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;letter-spacing:.14em;color:#0b0907;background:var(--gold,#c2a05e);padding:15px 28px;border-radius:999px">CONTACT <span style="font-size:17px">→</span></a>
+  </div>
 
   <!-- ===== MASTHEAD ===== -->
   <section data-hero style="position:relative;padding:clamp(140px,18vh,200px) clamp(20px,5vw,72px) clamp(40px,6vw,64px);overflow:hidden">
@@ -128,8 +126,8 @@
       <form data-anim style="--d:.12s;opacity:0;transform:translateY(24px);display:flex;flex-direction:column;gap:28px;background:#fff;border:1px solid rgba(26,23,18,.08);border-radius:8px;padding:clamp(28px,3.5vw,48px)">
         <label style="display:flex;flex-direction:column;gap:10px">
           <span style="display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:700;color:#1a1712">お問い合わせ種別 <span style="font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--gold,#9a7536);background:rgba(154,117,54,.12);padding:2px 8px;border-radius:3px">必須</span></span>
-          <select name="category" style="width:100%;border:1px solid rgba(26,23,18,.18);border-radius:4px;background:#faf9f6;padding:13px 12px;font-size:15px;font-family:'Zen Kaku Gothic New',sans-serif;color:#1a1712;outline:none;transition:border-color .3s ease" style-focus="border-color:#9a7536">
-            <option value="">選択してください</option>
+          <select style="width:100%;border:1px solid rgba(26,23,18,.18);border-radius:4px;background:#faf9f6;padding:13px 12px;font-size:15px;font-family:'Zen Kaku Gothic New',sans-serif;color:#1a1712;outline:none;transition:border-color .3s ease" style-focus="border-color:#9a7536">
+            <option>選択してください</option>
             <option>事業に関するご相談</option>
             <option>協業・提携のご相談</option>
             <option>採用について</option>
@@ -140,39 +138,38 @@
         <div class="lc-frow" style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
           <label style="display:flex;flex-direction:column;gap:10px">
             <span style="display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:700;color:#1a1712">お名前 <span style="font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--gold,#9a7536);background:rgba(154,117,54,.12);padding:2px 8px;border-radius:3px">必須</span></span>
-            <input type="text" name="name" placeholder="Your Name" style="width:100%;border:none;border-bottom:1px solid rgba(26,23,18,.22);background:transparent;padding:11px 2px;font-size:16px;font-family:'Zen Kaku Gothic New',sans-serif;color:#1a1712;outline:none;transition:border-color .3s ease" style-focus="border-bottom-color:#9a7536">
+            <input type="text" placeholder="Your Name" style="width:100%;border:none;border-bottom:1px solid rgba(26,23,18,.22);background:transparent;padding:11px 2px;font-size:16px;font-family:'Zen Kaku Gothic New',sans-serif;color:#1a1712;outline:none;transition:border-color .3s ease" style-focus="border-bottom-color:#9a7536">
           </label>
           <label style="display:flex;flex-direction:column;gap:10px">
             <span style="display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:700;color:#1a1712">会社名 <span style="font-size:10px;font-weight:700;letter-spacing:.08em;color:#9a8f7e;background:rgba(26,23,18,.07);padding:2px 8px;border-radius:3px">任意</span></span>
-            <input type="text" name="company" placeholder="Company" style="width:100%;border:none;border-bottom:1px solid rgba(26,23,18,.22);background:transparent;padding:11px 2px;font-size:16px;font-family:'Zen Kaku Gothic New',sans-serif;color:#1a1712;outline:none;transition:border-color .3s ease" style-focus="border-bottom-color:#9a7536">
+            <input type="text" placeholder="Company" style="width:100%;border:none;border-bottom:1px solid rgba(26,23,18,.22);background:transparent;padding:11px 2px;font-size:16px;font-family:'Zen Kaku Gothic New',sans-serif;color:#1a1712;outline:none;transition:border-color .3s ease" style-focus="border-bottom-color:#9a7536">
           </label>
         </div>
 
         <div class="lc-frow" style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
           <label style="display:flex;flex-direction:column;gap:10px">
             <span style="display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:700;color:#1a1712">メールアドレス <span style="font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--gold,#9a7536);background:rgba(154,117,54,.12);padding:2px 8px;border-radius:3px">必須</span></span>
-            <input type="email" name="email" placeholder="example@company.co.jp" style="width:100%;border:none;border-bottom:1px solid rgba(26,23,18,.22);background:transparent;padding:11px 2px;font-size:16px;font-family:'Zen Kaku Gothic New',sans-serif;color:#1a1712;outline:none;transition:border-color .3s ease" style-focus="border-bottom-color:#9a7536">
+            <input type="email" placeholder="example@company.co.jp" style="width:100%;border:none;border-bottom:1px solid rgba(26,23,18,.22);background:transparent;padding:11px 2px;font-size:16px;font-family:'Zen Kaku Gothic New',sans-serif;color:#1a1712;outline:none;transition:border-color .3s ease" style-focus="border-bottom-color:#9a7536">
           </label>
           <label style="display:flex;flex-direction:column;gap:10px">
             <span style="display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:700;color:#1a1712">電話番号 <span style="font-size:10px;font-weight:700;letter-spacing:.08em;color:#9a8f7e;background:rgba(26,23,18,.07);padding:2px 8px;border-radius:3px">任意</span></span>
-            <input type="tel" name="tel" placeholder="03-1234-5678" style="width:100%;border:none;border-bottom:1px solid rgba(26,23,18,.22);background:transparent;padding:11px 2px;font-size:16px;font-family:'Zen Kaku Gothic New',sans-serif;color:#1a1712;outline:none;transition:border-color .3s ease" style-focus="border-bottom-color:#9a7536">
+            <input type="tel" placeholder="03-1234-5678" style="width:100%;border:none;border-bottom:1px solid rgba(26,23,18,.22);background:transparent;padding:11px 2px;font-size:16px;font-family:'Zen Kaku Gothic New',sans-serif;color:#1a1712;outline:none;transition:border-color .3s ease" style-focus="border-bottom-color:#9a7536">
           </label>
         </div>
 
         <label style="display:flex;flex-direction:column;gap:10px">
           <span style="display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:700;color:#1a1712">お問い合わせ内容 <span style="font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--gold,#9a7536);background:rgba(154,117,54,.12);padding:2px 8px;border-radius:3px">必須</span></span>
-          <textarea name="message" rows="5" placeholder="お問い合わせの詳細をご記入ください。" style="width:100%;border:1px solid rgba(26,23,18,.18);border-radius:4px;background:#faf9f6;padding:14px;font-size:15px;line-height:1.8;font-family:'Zen Kaku Gothic New',sans-serif;color:#1a1712;outline:none;resize:vertical;transition:border-color .3s ease" style-focus="border-color:#9a7536"></textarea>
+          <textarea rows="5" placeholder="お問い合わせの詳細をご記入ください。" style="width:100%;border:1px solid rgba(26,23,18,.18);border-radius:4px;background:#faf9f6;padding:14px;font-size:15px;line-height:1.8;font-family:'Zen Kaku Gothic New',sans-serif;color:#1a1712;outline:none;resize:vertical;transition:border-color .3s ease" style-focus="border-color:#9a7536"></textarea>
         </label>
 
         <div style="background:#faf9f6;border:1px solid rgba(26,23,18,.1);border-radius:6px;padding:16px 18px;font-size:13px;line-height:1.85;color:#4a443b">※ 入力いただいた個人情報は、お問い合わせ対応にのみ利用いたします。詳細は<a href="privacypolicy.html" style="color:var(--gold,#9a7536);text-decoration:underline;text-underline-offset:2px">プライバシーポリシー</a>をご確認ください。</div>
 
         <label style="display:flex;align-items:flex-start;gap:11px;cursor:pointer">
-          <input type="checkbox" name="agree" style="width:18px;height:18px;margin-top:2px;accent-color:#9a7536;flex:none">
+          <input type="checkbox" style="width:18px;height:18px;margin-top:2px;accent-color:#9a7536;flex:none">
           <span style="font-size:13px;line-height:1.7;color:#4a443b"><a href="privacypolicy.html" style="color:var(--gold,#9a7536);text-decoration:underline;text-underline-offset:2px">プライバシーポリシー</a>に同意の上、送信します。</span>
         </label>
 
-        <div data-form-status style="display:none;font-size:14px;line-height:1.8;font-weight:700;padding:14px 16px;border-radius:6px;text-align:center"></div>
-        <button data-submit data-magnetic type="submit" style="align-self:center;margin-top:6px;display:inline-flex;align-items:center;gap:14px;background:#1a1712;color:#f4f1ea;border:none;cursor:pointer;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;letter-spacing:.1em;padding:18px 44px;border-radius:999px;transition:transform .4s cubic-bezier(.16,1,.3,1),background .35s ease">送信する <span style="color:var(--gold,#c6a25e);font-size:18px">→</span></button>
+        <button data-magnetic type="submit" style="align-self:center;margin-top:6px;display:inline-flex;align-items:center;gap:14px;background:#1a1712;color:#f4f1ea;border:none;cursor:pointer;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;letter-spacing:.1em;padding:18px 44px;border-radius:999px;transition:transform .4s cubic-bezier(.16,1,.3,1),background .35s ease">送信する <span style="color:var(--gold,#c6a25e);font-size:18px">→</span></button>
       </form>
     </div>
   </section>
@@ -312,6 +309,29 @@ class Component extends DCLogic {
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
+    // mobile hamburger menu
+    const menuBtn = q('[data-menu-toggle]');
+    const mobileMenu = q('[data-mobile-menu]');
+    if (menuBtn && mobileMenu) {
+      const bars = Array.from(menuBtn.querySelectorAll('[data-bar]'));
+      const setMenu = (open) => {
+        this._menuOpen = open;
+        mobileMenu.classList.toggle('lc-open', open);
+        document.body.classList.toggle('lc-menu-open', open);
+        menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (bars.length === 3) {
+          bars[0].style.transform = open ? 'translateY(8px) rotate(45deg)' : 'none';
+          bars[1].style.opacity = open ? '0' : '1';
+          bars[2].style.transform = open ? 'translateY(-8px) rotate(-45deg)' : 'none';
+        }
+      };
+      this._setMenu = setMenu;
+      menuBtn.addEventListener('click', () => setMenu(!this._menuOpen));
+      qa('[data-menu-link]').forEach(l => l.addEventListener('click', () => setMenu(false)));
+      this._menuKey = (ev) => { if (ev.key === 'Escape' && this._menuOpen) setMenu(false); };
+      window.addEventListener('keydown', this._menuKey);
+    }
+
     const ctaSm = q('[data-cta-sm]');
     if (ctaSm) {
       ctaSm.addEventListener('mouseenter', () => { ctaSm.style.background = '#d8b76e'; ctaSm.style.transform = 'translateY(-2px)'; });
@@ -326,114 +346,7 @@ class Component extends DCLogic {
       mag.addEventListener('mouseleave', () => { mag.style.transform = 'none'; });
     }
     const form = q('form');
-    if (form) {
-      const cfg = window.LIMACON_CONTACT || {};
-      const statusEl = q('[data-form-status]');
-      const btn = q('[data-submit]');
-      const btnHtml = btn ? btn.innerHTML : '';
-
-      const setStatus = (msg, kind) => {
-        if (!statusEl) return;
-        statusEl.style.display = 'block';
-        statusEl.textContent = msg;
-        if (kind === 'ok') {
-          statusEl.style.background = 'rgba(154,117,54,.10)';
-          statusEl.style.color = '#7a5a22';
-          statusEl.style.border = '1px solid rgba(154,117,54,.35)';
-        } else if (kind === 'err') {
-          statusEl.style.background = 'rgba(176,58,46,.08)';
-          statusEl.style.color = '#9a2f24';
-          statusEl.style.border = '1px solid rgba(176,58,46,.32)';
-        } else {
-          statusEl.style.background = 'transparent';
-          statusEl.style.color = '#4a443b';
-          statusEl.style.border = '1px solid transparent';
-        }
-      };
-      const lockBtn = (locked, label) => {
-        if (!btn) return;
-        btn.disabled = locked;
-        btn.style.opacity = locked ? '0.6' : '1';
-        btn.style.pointerEvents = locked ? 'none' : 'auto';
-        btn.innerHTML = locked ? (label || '送信中…') : btnHtml;
-      };
-
-      const collect = () => ({
-        category: (q('[name="category"]') || {}).value || '',
-        name:     (q('[name="name"]') || {}).value || '',
-        company:  (q('[name="company"]') || {}).value || '',
-        email:    (q('[name="email"]') || {}).value || '',
-        tel:      (q('[name="tel"]') || {}).value || '',
-        message:  (q('[name="message"]') || {}).value || '',
-        agree:    !!((q('[name="agree"]') || {}).checked)
-      });
-
-      const validate = (d) => {
-        if (!d.name.trim()) return 'お名前をご入力ください。';
-        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email.trim())) return '正しいメールアドレスをご入力ください。';
-        if (!d.message.trim()) return 'お問い合わせ内容をご入力ください。';
-        if (!d.agree) return 'プライバシーポリシーへの同意が必要です。';
-        return null;
-      };
-
-      const post = (payload) => {
-        // reCAPTCHA トークンが付与され次第 POST
-        return fetch(cfg.GAS_ENDPOINT, {
-          method: 'POST',
-          // GAS Web App は text/plain でプリフライトを避ける
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify(payload)
-        }).then(r => r.json().catch(() => ({ ok: r.ok })));
-      };
-
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        setStatus('', null);
-        if (statusEl) statusEl.style.display = 'none';
-
-        const data = collect();
-        const err = validate(data);
-        if (err) { setStatus(err, 'err'); return; }
-
-        if (!cfg.GAS_ENDPOINT || cfg.GAS_ENDPOINT.indexOf('__') === 0) {
-          setStatus('送信先が未設定です。お手数ですが info@limacon.co.jp までご連絡ください。', 'err');
-          return;
-        }
-
-        lockBtn(true, '送信中…');
-
-        const send = (token) => {
-          post(Object.assign({}, data, { token: token }))
-            .then(res => {
-              if (res && res.ok) {
-                form.reset();
-                setStatus('送信が完了しました。お問い合わせありがとうございます。担当者より3営業日以内にご返信いたします。', 'ok');
-                if (btn) { btn.style.display = 'none'; }
-              } else {
-                setStatus('送信に失敗しました。時間をおいて再度お試しいただくか、info@limacon.co.jp までご連絡ください。', 'err');
-                lockBtn(false);
-              }
-            })
-            .catch(() => {
-              setStatus('通信エラーが発生しました。お手数ですが info@limacon.co.jp までご連絡ください。', 'err');
-              lockBtn(false);
-            });
-        };
-
-        const hasRecaptcha = cfg.RECAPTCHA_SITE_KEY && cfg.RECAPTCHA_SITE_KEY.indexOf('__') !== 0
-                             && typeof grecaptcha !== 'undefined';
-        if (hasRecaptcha) {
-          grecaptcha.ready(() => {
-            grecaptcha.execute(cfg.RECAPTCHA_SITE_KEY, { action: cfg.RECAPTCHA_ACTION || 'contact_submit' })
-              .then(send)
-              .catch(() => { setStatus('reCAPTCHAの検証に失敗しました。再度お試しください。', 'err'); lockBtn(false); });
-          });
-        } else {
-          // キー未設定時はトークン無しで送信（GAS側で検証スキップ設定が必要）
-          send('');
-        }
-      });
-    }
+    if (form) form.addEventListener('submit', (e) => { e.preventDefault(); });
 
     const fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
     const cursor = q('[data-cursor]');
@@ -468,6 +381,8 @@ class Component extends DCLogic {
     if (this._raf) cancelAnimationFrame(this._raf);
     if (this._kickRaf) cancelAnimationFrame(this._kickRaf);
     if (this._loaderT) clearTimeout(this._loaderT);
+    if (this._menuKey) window.removeEventListener('keydown', this._menuKey);
+    document.body.classList.remove('lc-menu-open');
   }
 
   renderVals() { return {}; }
